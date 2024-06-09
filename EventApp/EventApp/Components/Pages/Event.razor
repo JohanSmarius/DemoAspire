@@ -1,0 +1,48 @@
+﻿@page "/event/{id:int}"
+@using EventApp.Infrastructure
+@using EventApp.Models
+
+@inject EventsApiClient EventsApi
+@inject VolunteerApiClient VolunteerApi
+
+<h3>Event</h3>
+
+<EditForm Model="@CurrentEvent" OnValidSubmit="OnSubmit" FormName="Event" >
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group row">
+        <label for="name">Name:</label>
+        <InputText id="name" @bind-Value="CurrentEvent.Name" class="form-control" />
+    </div>
+   
+    <button type="submit">Submit</button>
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private IEnumerable<Volunteer> Volunteers { get; set; } = new List<Volunteer>();
+
+    [SupplyParameterFromForm]
+    public EventViewModel CurrentEvent { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var currentEvent = await EventsApi.GetEventByIdAsync(Id);
+        CurrentEvent = new EventViewModel { Id = currentEvent.Id, Name = currentEvent.Name };
+
+        Volunteers = await VolunteerApi.GetVolunteersAsync();
+    }
+
+
+    public async Task OnSubmit()
+    {
+        await Task.CompletedTask;
+    }
+
+
+}
+

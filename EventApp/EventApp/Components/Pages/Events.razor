@@ -1,0 +1,32 @@
+﻿@page "/events"
+@using EventApp.Infrastructure
+@using EventApp.Models
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+@inject EventsApiClient EventsApi
+
+<h3>Events</h3>
+
+<QuickGrid Items="@events">
+    <PropertyColumn Property="@(e => e.Name)" Sortable="true" />
+    <PropertyColumn Property="@(e => e.Description)" Sortable="true" />
+    <PropertyColumn Property="@(e => e.StartTime)" Format="yyyy-MM-dd" Sortable="true" />
+    <PropertyColumn Property="@(e => e.EndTime)" Format="yyyy-MM-dd" Sortable="true"/>
+</QuickGrid>
+
+
+@code {
+    private IQueryable<Models.Event> events;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await EventsApi.GetEventsAsync();
+
+        if (result != null)
+        {
+            events = result.AsQueryable();
+        }
+    }
+
+
+}
