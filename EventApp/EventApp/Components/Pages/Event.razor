@@ -4,6 +4,7 @@
 
 @inject EventsApiClient EventsApi
 @inject VolunteerApiClient VolunteerApi
+@inject ILogger<Event> Logger
 
 <h3>Event</h3>
 
@@ -15,10 +16,16 @@
         <label for="name">Name:</label>
         <InputText id="name" @bind-Value="CurrentEvent.Name" class="form-control" />
     </div>
-   
+
+    @foreach (var volunteer in Volunteers)
+    {
+        <div class="form-group row">
+            <label for="volunteer">@volunteer.Name</label>
+        </div>
+    }
+  
     <button type="submit">Submit</button>
 </EditForm>
-
 
 @code {
     [Parameter]
@@ -35,11 +42,13 @@
         CurrentEvent = new EventViewModel { Id = currentEvent.Id, Name = currentEvent.Name };
 
         Volunteers = await VolunteerApi.GetVolunteersAsync();
+        Logger.LogInformation($"Volunteers loaded: {Volunteers.Count()}");
     }
 
 
     public async Task OnSubmit()
     {
+        Logger.LogInformation("Event submitted");
         await Task.CompletedTask;
     }
 
