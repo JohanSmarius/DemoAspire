@@ -9,6 +9,13 @@ builder.AddServiceDefaults();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.AddRedisDistributedCache("cache");
+
+builder.Services.AddOutputCache(options => 
+{
+    options.AddBasePolicy(builder => builder.Expire(TimeSpan.FromSeconds(60)));
+});
+
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
@@ -21,6 +28,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseOutputCache();
 
 app.MapGet("/volunteer", () =>
 {
@@ -51,7 +60,8 @@ app.MapGet("/volunteer", () =>
     return volunteers;
 })
 .WithName("GetVolunteers")
-.WithOpenApi();
+.WithOpenApi().CacheOutput();
+
 
 app.Run();
 
