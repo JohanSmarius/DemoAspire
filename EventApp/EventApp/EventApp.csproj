@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\DemoAspire.ServiceDefaults\DemoAspire.ServiceDefaults.csproj" />
     <ProjectReference Include="..\EventApp.Client\EventApp.Client.csproj" />
+    <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.1" />
     <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="8.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="8.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.5" />
