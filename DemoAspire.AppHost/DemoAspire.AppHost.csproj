@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EventApp\EventApp\EventApp.csproj" />
     <ProjectReference Include="..\EventsApi\EventsApi.csproj" />
+    <ProjectReference Include="..\Postgress.Migrations\Postgress.Migrations.csproj" />
     <ProjectReference Include="..\VolunteerApi\VolunteerApi.csproj" />
   </ItemGroup>
 

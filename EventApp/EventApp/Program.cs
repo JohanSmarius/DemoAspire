@@ -1,7 +1,6 @@
 using EventApp.Client.Pages;
 using EventApp.Components;
 using EventApp.Components.Account;
-using EventApp.Data;
 using EventApp.Infrastructure;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -45,7 +44,7 @@ builder.Services.AddAuthentication(options =>
     })
     .AddIdentityCookies();
 
-var connectionString = builder.Configuration.GetConnectionString("db") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+//var connectionString = builder.Configuration.GetConnectionString("db") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.AddNpgsqlDbContext<ApplicationDbContext>("db");
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 

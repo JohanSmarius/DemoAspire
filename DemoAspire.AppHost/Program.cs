@@ -1,6 +1,8 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var dbServer = builder.AddPostgres("dbServer").WithPgAdmin();
+var dbPassword = builder.AddParameter("dbPassword", secret: true);
+
+var dbServer = builder.AddPostgres("dbServer", password: dbPassword).WithDataVolume().WithPgAdmin();
 var db = dbServer.AddDatabase("db");
 
 var redis = builder.AddRedis("redis");
@@ -12,6 +14,9 @@ builder.AddProject<Projects.EventApp>("eventapp")
     .WithReference(eventApi)
     .WithReference(volunteerApi)
     .WithReference(redis)
+    .WithReference(db);
+
+builder.AddProject<Projects.Postgress_Migrations>("postgress-migrations")
     .WithReference(db);
 
 builder.Build().Run();
