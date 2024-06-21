@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EventApp\EventApp\EventApp.csproj" />
     <ProjectReference Include="..\EventsApi\EventsApi.csproj" />
+    <ProjectReference Include="..\VolunteerApi\VolunteerApi.csproj" />
   </ItemGroup>
 
 </Project>
