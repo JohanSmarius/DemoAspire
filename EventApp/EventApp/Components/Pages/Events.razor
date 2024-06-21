@@ -7,13 +7,36 @@
 
 <h3>Events</h3>
 
-<QuickGrid Items="@events">
-    <PropertyColumn Property="@(e => e.Name)" Sortable="true" />
-    <PropertyColumn Property="@(e => e.Description)" Sortable="true" />
-    <PropertyColumn Property="@(e => e.StartTime)" Format="yyyy-MM-dd" Sortable="true" />
-    <PropertyColumn Property="@(e => e.EndTime)" Format="yyyy-MM-dd" Sortable="true"/>
-</QuickGrid>
-
+@if (events == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Start time</th>
+                <th>End time</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var e in events)
+            {
+                <tr>
+                    <td>@e.Name</td>
+                    <td>@e.Description</td>
+                    <td>@e.StartTime.ToShortDateString()</td>
+                    <td>@e.EndTime.ToShortDateString()</td>
+                    <td><a href="/event/@e.Id" class="btn btn-primary">Edit</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
 @code {
     private IQueryable<Models.Event> events;
