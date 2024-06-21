@@ -2,7 +2,12 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var redis = builder.AddRedis("redis");
 
-var dbServer = builder.AddPostgres("dbserver").WithPgAdmin();
+var dbPassword = builder.AddParameter("dbpassword", secret: true);
+
+var dbServer = builder.AddPostgres("dbserver", password: dbPassword)
+    .WithDataVolume()
+    .WithPgAdmin();
+
 var db = dbServer.AddDatabase("db");
 
 var eventApi = builder.AddProject<Projects.EventsApi>("eventsapi");
