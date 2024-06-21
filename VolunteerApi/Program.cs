@@ -9,9 +9,13 @@ builder.AddServiceDefaults();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.AddRedisOutputCache("redis");
+
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
+
+app.UseOutputCache();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -51,7 +55,8 @@ app.MapGet("/volunteer", () =>
     return volunteers;
 })
 .WithName("GetVolunteers")
-.WithOpenApi();
+.WithOpenApi()
+.CacheOutput();
 
 app.Run();
 
