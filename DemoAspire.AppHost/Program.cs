@@ -20,7 +20,8 @@ builder.AddProject<Projects.EventApp>("eventapp")
     .WithReference(eventApi)
     .WithReference(volunteerApi)
     .WithReference(redis)
-    .WithReference(db);
+    .WithReference(db)
+    .WithExternalHttpEndpoints();
 
 
 builder.AddProject<Projects.DemoAspire_MigrationWorker>("demoaspire-migrationworker")
