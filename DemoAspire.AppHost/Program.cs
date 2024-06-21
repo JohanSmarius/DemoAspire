@@ -2,6 +2,9 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var redis = builder.AddRedis("redis");
 
+var dbServer = builder.AddPostgres("dbserver").WithPgAdmin();
+var db = dbServer.AddDatabase("db");
+
 var eventApi = builder.AddProject<Projects.EventsApi>("eventsapi");
 
 var volunteerApi = builder.AddProject<Projects.VolunteerApi>("volunteerapi")
@@ -11,7 +14,8 @@ var volunteerApi = builder.AddProject<Projects.VolunteerApi>("volunteerapi")
 builder.AddProject<Projects.EventApp>("eventapp")
     .WithReference(eventApi)
     .WithReference(volunteerApi)
-    .WithReference(redis);
+    .WithReference(redis)
+    .WithReference(db);
 
 
 builder.Build().Run();
