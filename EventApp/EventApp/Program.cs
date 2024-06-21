@@ -20,7 +20,7 @@ builder.Services.AddHttpClient<EventsApiClient>(client =>
 {
     // This URL uses "https+http://" to indicate HTTPS is preferred over HTTP.
     // Learn more about service discovery scheme resolution at https://aka.ms/dotnet/sdschemes.
-    client.BaseAddress = new Uri("https://localhost:7055");
+    client.BaseAddress = new Uri("http+https://eventsapi");
 });
 
 builder.Services.AddHttpClient<VolunteerApiClient>(client =>
