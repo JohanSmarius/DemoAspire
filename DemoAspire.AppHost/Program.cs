@@ -18,4 +18,8 @@ builder.AddProject<Projects.EventApp>("eventapp")
     .WithReference(db);
 
 
+builder.AddProject<Projects.DemoAspire_MigrationWorker>("demoaspire-migrationworker")
+    .WithReference(db);
+
+
 builder.Build().Run();

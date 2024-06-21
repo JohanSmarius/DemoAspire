@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DemoAspire.Postgress\DemoAspire.Postgress.csproj" />
     <ProjectReference Include="..\..\DemoAspire.ServiceDefaults\DemoAspire.ServiceDefaults.csproj" />
     <ProjectReference Include="..\EventApp.Client\EventApp.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="8.0.6" />

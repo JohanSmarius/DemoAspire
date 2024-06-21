@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-DemoAspire.MigrationWorker-fe0dea94-7767-4f7d-bc16-ac3f101557dc</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+	  <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DemoAspire.Postgress\DemoAspire.Postgress.csproj" />
+    <ProjectReference Include="..\DemoAspire.ServiceDefaults\DemoAspire.ServiceDefaults.csproj" />
+  </ItemGroup>
+</Project>

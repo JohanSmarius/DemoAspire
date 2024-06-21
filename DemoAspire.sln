@@ -11,9 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventsApi", "EventsApi\Even
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VolunteerApi", "VolunteerApi\VolunteerApi.csproj", "{88AF7761-6BD8-408B-B9B8-A5BCB6CFCB63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAspire.AppHost", "DemoAspire.AppHost\DemoAspire.AppHost.csproj", "{4A1E319E-6E5C-47E9-B4A4-E4E084D0FBD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoAspire.AppHost", "DemoAspire.AppHost\DemoAspire.AppHost.csproj", "{4A1E319E-6E5C-47E9-B4A4-E4E084D0FBD9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoAspire.ServiceDefaults", "DemoAspire.ServiceDefaults\DemoAspire.ServiceDefaults.csproj", "{7406D281-2E93-4E31-9587-BEDEFA91EFAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAspire.Postgress", "DemoAspire.Postgress\DemoAspire.Postgress.csproj", "{56B728F0-FBE5-4942-976A-D453A7B0E1B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoAspire.MigrationWorker", "DemoAspire.MigrationWorker\DemoAspire.MigrationWorker.csproj", "{82758E5F-78FC-46E7-835C-548ED72DBC9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{7406D281-2E93-4E31-9587-BEDEFA91EFAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7406D281-2E93-4E31-9587-BEDEFA91EFAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7406D281-2E93-4E31-9587-BEDEFA91EFAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56B728F0-FBE5-4942-976A-D453A7B0E1B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56B728F0-FBE5-4942-976A-D453A7B0E1B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56B728F0-FBE5-4942-976A-D453A7B0E1B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56B728F0-FBE5-4942-976A-D453A7B0E1B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82758E5F-78FC-46E7-835C-548ED72DBC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82758E5F-78FC-46E7-835C-548ED72DBC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82758E5F-78FC-46E7-835C-548ED72DBC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82758E5F-78FC-46E7-835C-548ED72DBC9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
