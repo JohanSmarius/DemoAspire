@@ -5,6 +5,8 @@
 @inject EventsApiClient EventsApi
 @inject VolunteerApiClient VolunteerApi
 
+@inject ILogger<Event> Logger
+
 <h3>Event</h3>
 
 <EditForm Model="@CurrentEvent" OnValidSubmit="OnSubmit" FormName="Event" >
@@ -42,6 +44,8 @@
         CurrentEvent = new EventViewModel { Id = currentEvent.Id, Name = currentEvent.Name };
 
         Volunteers = await VolunteerApi.GetVolunteersAsync();
+
+        Logger.LogInformation($"Volunteers loaded: {Volunteers.Count()}");
     }
 
 
