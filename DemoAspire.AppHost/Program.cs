@@ -5,7 +5,8 @@ var redis = builder.AddRedis("redis");
 var dbPassword = builder.AddParameter("dbpassword", secret: true);
 
 var dbServer = builder.AddPostgres("dbserver", password: dbPassword)
-    .WithDataVolume()
+    // Does not work in Azure yet
+    //.WithDataVolume()
     .WithPgAdmin();
 
 var db = dbServer.AddDatabase("db");
